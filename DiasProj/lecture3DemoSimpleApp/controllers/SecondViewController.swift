@@ -32,7 +32,10 @@ class SecondViewController: UIViewController {
         self.title = "Main page"
         self.configureTableView()
     }
-
+    @IBAction func didAdd() {
+        let vc = storyboard?.instantiateViewController(identifier: "add") as! AddViewController
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     func testDataConfigure(){
         arr.append(ToDoItem(id: 1, title: "first", deadLine: "20.12.2021", inProgress: false))
@@ -105,16 +108,7 @@ extension SecondViewController: UITableViewDelegate, UITableViewDataSource{
         let swipe = UISwipeActionsConfiguration(actions: [delete])
         return swipe
     }
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let edit = UIContextualAction(style: .normal, title: "Edit") { (action, view, completionHandler) in
-            completionHandler(true)
-        }
-        
-      
-        return UISwipeActionsConfiguration(actions: [edit])
-    }
-    
+   
     
 }
 

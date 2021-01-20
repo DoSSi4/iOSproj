@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -102,7 +103,7 @@
                     <navigationItem key="navigationItem" id="nbE-Mz-bJS">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pYP-bD-3lD">
                             <connections>
-                                <action selector="didAdd:" destination="U1N-5H-nwj" id="zgH-L5-pmz"/>
+                                <action selector="didAdd" destination="dnG-CO-4do" id="INe-Ll-MHd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -111,20 +112,66 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LHD-mP-bqF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="U1N-5H-nwj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1563.768115942029" y="75.669642857142847"/>
         </scene>
-        <!--View Controller-->
+        <!--Add View Controller-->
         <scene sceneID="51D-eg-zS7">
             <objects>
-                <viewController id="b7P-li-5OL" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="b7P-li-5OL" customClass="AddViewController" customModule="lecture3DemoSimpleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qfI-i3-a7e">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter what need to do " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ddQ-sq-2MR">
+                                <rect key="frame" x="10" y="71" width="394" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="lBJ-DO-ugd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="v08-33-ZM8">
+                                <rect key="frame" x="0.0" y="186" width="414" height="216"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WMa-6s-e01">
+                                <rect key="frame" x="10" y="518" width="394" height="34"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="6Zl-8y-1nu"/>
+                                </constraints>
+                                <color key="tintColor" systemColor="linkColor"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButton" destination="b7P-li-5OL" eventType="primaryActionTriggered" id="AtW-bM-Eo7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yPJ-c3-LIo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yPJ-c3-LIo" firstAttribute="trailing" secondItem="ddQ-sq-2MR" secondAttribute="trailing" constant="10" id="5hh-uB-Hcu"/>
+                            <constraint firstItem="v08-33-ZM8" firstAttribute="leading" secondItem="yPJ-c3-LIo" secondAttribute="leading" id="OXj-nc-sWu"/>
+                            <constraint firstItem="WMa-6s-e01" firstAttribute="top" secondItem="v08-33-ZM8" secondAttribute="bottom" constant="116" id="Vd9-2U-L98"/>
+                            <constraint firstItem="ddQ-sq-2MR" firstAttribute="top" secondItem="yPJ-c3-LIo" secondAttribute="top" constant="27" id="YEO-KL-5il"/>
+                            <constraint firstItem="v08-33-ZM8" firstAttribute="leading" secondItem="yPJ-c3-LIo" secondAttribute="leading" id="cmE-sl-XsU"/>
+                            <constraint firstItem="WMa-6s-e01" firstAttribute="top" secondItem="v08-33-ZM8" secondAttribute="bottom" constant="116" id="cqX-4E-bvt"/>
+                            <constraint firstItem="v08-33-ZM8" firstAttribute="trailing" secondItem="yPJ-c3-LIo" secondAttribute="trailing" id="fu5-ZQ-O3t"/>
+                            <constraint firstItem="yPJ-c3-LIo" firstAttribute="trailing" secondItem="WMa-6s-e01" secondAttribute="trailing" constant="10" id="jGA-Ie-HXW"/>
+                            <constraint firstItem="v08-33-ZM8" firstAttribute="top" secondItem="ddQ-sq-2MR" secondAttribute="bottom" constant="63" id="mb3-e2-zg8"/>
+                            <constraint firstItem="ddQ-sq-2MR" firstAttribute="leading" secondItem="yPJ-c3-LIo" secondAttribute="leading" constant="10" id="n1f-B2-I9Q"/>
+                            <constraint firstItem="WMa-6s-e01" firstAttribute="leading" secondItem="yPJ-c3-LIo" secondAttribute="leading" constant="10" id="pML-Fi-vW6"/>
+                            <constraint firstItem="yPJ-c3-LIo" firstAttribute="trailing" secondItem="WMa-6s-e01" secondAttribute="trailing" constant="10" id="vpj-ze-1tJ"/>
+                            <constraint firstItem="v08-33-ZM8" firstAttribute="top" secondItem="ddQ-sq-2MR" secondAttribute="bottom" constant="63" id="y0U-Ob-BwG"/>
+                            <constraint firstItem="WMa-6s-e01" firstAttribute="top" secondItem="v08-33-ZM8" secondAttribute="bottom" constant="116" id="zq9-mE-SvS"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="v08-33-ZM8" id="vkR-Dg-r5o"/>
+                        <outlet property="textField" destination="ddQ-sq-2MR" id="G2j-d8-hc4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eCn-Rx-33S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -150,6 +197,12 @@
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

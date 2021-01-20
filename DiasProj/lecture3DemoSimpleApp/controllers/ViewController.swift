@@ -29,7 +29,6 @@ class ViewController: UIViewController {
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    @IBAction func didAdd(_ sender: Any) {
-    }
+    
 }
 
